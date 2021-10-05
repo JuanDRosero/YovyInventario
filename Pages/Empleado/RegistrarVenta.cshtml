@@ -1,0 +1,67 @@
+﻿@page
+@model YovyInventario.Pages.Empleado.RegistrarVentaModel
+@{
+}
+<h2>Registrar Venta del empleado</h2>
+<div class="border">
+    <form method="post">
+        <div asp-validation-sumary="ModelOnly">
+            <div class="container" style="padding:30px;">
+                <div class="form-group">
+                    <div class="row">
+                        <div class="col-sm-2">
+                            <label asp-for="venta.Fecha"></label>
+                        </div>
+                        <div class="col-sm-4">
+                            <input asp-for="venta.Fecha" type="date" class="form-control" />
+                            <span asp-validation-for="venta.Fecha" class="text-danger"></span>    <!--Texto de aviso en caso de que el campo no cumpla los requerimentos-->
+                        </div>
+
+                    </div>
+
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col-sm-2">
+                                <label asp-for="venta.Cantidad"></label>
+                            </div>
+                            <div class="col-sm-4">
+                                <input asp-for="venta.Cantidad" class="form-control" />
+                            </div>
+                            <span asp-validation-for="venta.Cantidad" class="text-danger"></span>    <!--Texto de aviso en caso de que el campo no cumpla los requerimentos-->
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col-sm-2">
+                                <label asp-for="venta.NombreCliente"></label>
+                            </div>
+                            <div class="col-sm-4">
+                                <input asp-for="venta.NombreCliente" class="form-control" />
+                            </div>
+                            <span asp-validation-for="venta.NombreCliente" class="text-danger"></span>    <!--Texto de aviso en caso de que el campo no cumpla los requerimentos-->
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <select asp-for="venta.Fkproducto" class="form-select" aria-label="Default select example">
+                            @foreach (var item in Model.productos)
+                            {
+                                <!-- Opciones de la lista -->
+                                <option value="@item.IdProducto">@item.Nombre</option>
+                            }
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col-sm-2">
+                                <input type="submit" value="Registrar" class="btn btn-primary form-control" />
+                            </div>
+                            <div class="col-sm-4">
+                                <a asp-page="Index" class="btn btn-success form-control">Volver a la Lista</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>

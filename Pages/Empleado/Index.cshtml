@@ -1,0 +1,45 @@
+﻿@page
+@model YovyInventario.Pages.Empleado.IndexModel
+@{
+}
+
+<h2>Lista de Inventario</h2>
+<table class="table table-dark table-striped">
+    <tr>
+        <th>#</th>
+        <th>Fecha</th>
+        <th>Cantidad</th>
+        <th>Producto</th>
+    </tr>
+    @foreach (var item in Model.inventario)
+    {
+<tr>
+    <td>@Html.DisplayFor(m => item.IdInventario)</td>
+    <td>@Html.DisplayFor(m => item.Fecha)</td>
+    <td>@Html.DisplayFor(m => item.Cantidad)</td>
+    <td>@Html.DisplayFor(m => Model.productos.ToList().Find(p => p.IdProducto == item.Fkproducto).Nombre)</td>
+</tr>
+    }
+</table>
+<h2>Lista de Ventas</h2>
+<table class="table table-dark table-striped">
+    <tr>
+        <th>#</th>
+        <th>Nombre Cliente</th>
+        <th>Fecha</th>
+        <th>Cantidad</th>
+        <th>Producto</th>
+        <th>Precio Total</th>
+    </tr>
+    @foreach (var item in Model.ventas)
+    {
+<tr>
+    <td>@Html.DisplayFor(m => item.IdVenta)</td>
+    <td>@Html.DisplayFor(m => item.NombreCliente)</td>
+    <td>@Html.DisplayFor(m => item.Fecha)</td>
+    <td>@Html.DisplayFor(m => item.Cantidad)</td>
+    <td>@Html.DisplayFor(m => Model.productos.ToList().Find(p => p.IdProducto == item.Fkproducto).Nombre)</td>
+    <td>@Html.DisplayFor(m => item.PrecioTotal)</td>
+</tr>
+    }
+</table>
