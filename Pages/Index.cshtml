@@ -24,18 +24,7 @@
                     @Model.Mensaje
                 </div>
             }
-            <!--<form method="post">
-        <h1 class="h3 mb-3 fw-normal">Pleas Sign-in</h1>
-        <div class="form-floating">
-            <input class="form-control" name="user" placeholder="name@example.com" />
-            <label for="floatingInput">Email address</label>
-        </div>
-        <div class="form-floating">
-            <input class="form-control" name="password" type="password" placeholder="Password" />
-            <label for="floatingPassword">Password</label>
-        </div>
-        <button class="w-100 btn btn-lg btn-primary" type="submit">Sign in</button>
-    </form>-->
+     
         <div class="wrapper fadeInDown">
             <div id="formContent">
                 <!-- Tabs Titles -->
@@ -45,9 +34,9 @@
                 </div>
 
                 <!-- Login Form -->
-                <form>
-                    <input type="text" id="login" class="fadeIn second" name="login" placeholder="login">
-                    <input type="password" id="password" class="fadeIn third" name="login" placeholder="password">
+                <form method="post">
+                    <input type="text"  class="fadeIn second" name="user" placeholder="login">
+                    <input type="password" class="fadeIn third" name="password" placeholder="password">
                     <input type="submit" class="fadeIn fourth" value="Log In">
                 </form>
 
