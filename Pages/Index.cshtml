@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Login - YovyInventario</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
-    <link rel="stylesheet" href="~/css/site.css" />
+    <link rel="stylesheet" href="~/css/styles-login.css" />
 </head>
 <body class="text-center">
     <div class="container">
@@ -24,18 +24,38 @@
                     @Model.Mensaje
                 </div>
             }
-            <form method="post">
-                <h1 class="h3 mb-3 fw-normal">Pleas Sign-in</h1>
-                <div class="form-floating">
-                    <input class="form-control" name="user" placeholder="name@example.com" />
-                    <label for="floatingInput">Email address</label>
+            <!--<form method="post">
+        <h1 class="h3 mb-3 fw-normal">Pleas Sign-in</h1>
+        <div class="form-floating">
+            <input class="form-control" name="user" placeholder="name@example.com" />
+            <label for="floatingInput">Email address</label>
+        </div>
+        <div class="form-floating">
+            <input class="form-control" name="password" type="password" placeholder="Password" />
+            <label for="floatingPassword">Password</label>
+        </div>
+        <button class="w-100 btn btn-lg btn-primary" type="submit">Sign in</button>
+    </form>-->
+
+            <div class="wrapper fadeInDown">
+                <div id="formContent">
+                    <!-- Tabs Titles -->
+                    <!-- Icon -->
+                    <div class="fadeIn first">
+                        <img src="http://danielzawadzki.com/codepen/01/icon.svg" id="icon" alt="User Icon" />
+                    </div>
+
+                    <!-- Login Form -->
+                    <form method="post">
+                        <input type="text" class="fadeIn second inputlogin " name="user" placeholder="user">
+                        <input type="password" class="fadeIn third inputlogin" name="password"  placeholder="Password">
+                        <input type="submit" class="fadeIn fourth" value="Log In">
+                    </form>
+
+                    
+
                 </div>
-                <div class="form-floating">
-                    <input class="form-control" name="password" type="password" placeholder="Password" />
-                    <label for="floatingPassword">Password</label>
-                </div>
-                <button class="w-100 btn btn-lg btn-primary" type="submit">Sign in</button>
-            </form>
+            </div>
         </main>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
