@@ -29,8 +29,16 @@ namespace YovyInventario.Pages
 
         public ActionResult OnPost(string user, string password)
         {
-          
-            usuario = _context.Usuarios.Where(e => e.NUsuario == user).Where(e =>e.Contrasena==Convert.ToInt32(password)).FirstOrDefault();
+            try
+            {
+                int pass = Convert.ToInt32(password);
+                usuario = _context.Usuarios.Where(e => e.NUsuario == user).Where(e => e.Contrasena == pass).FirstOrDefault();
+            } catch(Exception e)
+            {
+                Mensaje = "Contraseña invalida";
+                return Page();
+            }
+            
             
             if (usuario!=null)
             {
