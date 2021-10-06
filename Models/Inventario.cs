@@ -11,11 +11,11 @@ namespace YovyInventario.Models
         public int IdInventario { get; set; }
         [Required]
         public int Fkusuario { get; set; }
-        [Required]
+        [Required] [Display(Name ="Cantidad")]
         public int Cantidad { get; set; }
         [Required]
         public int Fkproducto { get; set; }
-        [DataType(DataType.Date)]
+        [DataType(DataType.Date)] [Display(Name ="Fecha")]
         public DateTime Fecha { get; set; }
 
         public virtual Producto FkproductoNavigation { get; set; }

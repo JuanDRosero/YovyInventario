@@ -26,8 +26,9 @@
                             </div>
                             <div class="col-sm-4">
                                 <input asp-for="inventario.Cantidad" class="form-control" />
+                                <span asp-validation-for="inventario.Cantidad" class="text-danger"></span>    <!--Texto de aviso en caso de que el campo no cumpla los requerimentos-->
                             </div>
-                            <span asp-validation-for="inventario.Cantidad" class="text-danger"></span>    <!--Texto de aviso en caso de que el campo no cumpla los requerimentos-->
+                           
                         </div>
                     </div>
 
@@ -39,6 +40,7 @@
                                     <option value="@item.IdProducto">@item.Nombre</option>
                                 }
                             </select>
+
                     </div>
 
                     <div class="form-group">

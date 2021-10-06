@@ -19,16 +19,18 @@ namespace YovyInventario.Pages.Empleado
         public RegistrarInventarioModel(YovyDBContext context)
         {
             _context = context;
-            
+            productos = _context.Productos.ToList();
+
         }
         public void OnGet()
         {
-            productos = _context.Productos.ToList();
+            
         }
         public async Task<ActionResult> OnPost()
         {
             if (!ModelState.IsValid)    //Verifica que el modelo enviado sea valido.. si no lo es, se retorna  al amisma página
             {
+                productos = _context.Productos.ToList();
                 return Page();
             }
             int id = (int)HttpContext.Session.GetInt32("_id"); ;

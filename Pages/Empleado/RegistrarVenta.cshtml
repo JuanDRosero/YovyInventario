@@ -26,8 +26,9 @@
                             </div>
                             <div class="col-sm-4">
                                 <input asp-for="venta.Cantidad" class="form-control" />
+                                <span asp-validation-for="venta.Cantidad" class="text-danger"></span>    <!--Texto de aviso en caso de que el campo no cumpla los requerimentos-->
                             </div>
-                            <span asp-validation-for="venta.Cantidad" class="text-danger"></span>    <!--Texto de aviso en caso de que el campo no cumpla los requerimentos-->
+                           
                         </div>
                     </div>
                     <div class="form-group">
@@ -37,8 +38,9 @@
                             </div>
                             <div class="col-sm-4">
                                 <input asp-for="venta.NombreCliente" class="form-control" />
+                                <span asp-validation-for="venta.NombreCliente" class="text-danger"></span>
                             </div>
-                            <span asp-validation-for="venta.NombreCliente" class="text-danger"></span>    <!--Texto de aviso en caso de que el campo no cumpla los requerimentos-->
+                                <!--Texto de aviso en caso de que el campo no cumpla los requerimentos-->
                         </div>
                     </div>
                     <div class="form-group">
