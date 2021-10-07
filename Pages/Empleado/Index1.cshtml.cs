@@ -26,11 +26,20 @@ namespace YovyInventario.Pages.Empleado
             productos = _contex.Productos.ToList();
            
         }
-        public void OnGet()
+        public ActionResult OnGet()
         {
-            int id = (int) HttpContext.Session.GetInt32("_id");
-            inventario = _contex.Inventarios.ToList().Where(e => e.Fkusuario == id);
-            ventas = _contex.Venta.ToList().Where(e => e.Fkvendedor == id);
+            if (HttpContext.Session.GetInt32("_id") != null)
+            {
+                int id = (int)HttpContext.Session.GetInt32("_id");
+                inventario = _contex.Inventarios.ToList().Where(e => e.Fkusuario == id);
+                ventas = _contex.Venta.ToList().Where(e => e.Fkvendedor == id);
+                return Page();
+            }
+            else
+            {
+                return RedirectToPage("~/Index");
+            }
+            
             
         }
     }

@@ -24,7 +24,6 @@ namespace YovyInventario.Pages
 
         public void OnGet()
         {
-
         }
 
         public ActionResult OnPost(string user, string password)
@@ -44,7 +43,7 @@ namespace YovyInventario.Pages
             {
                 int id = usuario.IdUsuario;
                 HttpContext.Session.SetInt32("_id",id);
-                return RedirectToPage("/Empleado/Index");
+                return RedirectToPage("/Empleado/Index1");
             }
             else
             {
