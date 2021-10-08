@@ -24,6 +24,7 @@ namespace YovyInventario.Pages
 
         public void OnGet()
         {
+            HttpContext.Session.SetInt32("_id", -1);
         }
 
         public ActionResult OnPost(string user, string password)

@@ -28,7 +28,7 @@ namespace YovyInventario.Pages.Empleado
         }
         public ActionResult OnGet()
         {
-            if (HttpContext.Session.GetInt32("_id") != null)
+            if (HttpContext.Session.GetInt32("_id") != -1)
             {
                 int id = (int)HttpContext.Session.GetInt32("_id");
                 inventario = _contex.Inventarios.ToList().Where(e => e.Fkusuario == id);
@@ -37,7 +37,7 @@ namespace YovyInventario.Pages.Empleado
             }
             else
             {
-                return RedirectToPage("~/Index");
+                return RedirectToPage("/Index");
             }
             
             
