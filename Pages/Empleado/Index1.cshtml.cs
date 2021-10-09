@@ -19,7 +19,9 @@ namespace YovyInventario.Pages.Empleado
         [BindProperty]
         public IEnumerable<Producto> productos { get; set; }
         [BindProperty]
-        public Usuario usuario { get; set; }
+        public DateTime FechaInv{ get; set; }
+        [BindProperty]
+        public DateTime FechaVenta { get; set; }
         public IndexModel(YovyDBContext contex)
         {
             _contex = contex;
@@ -40,7 +42,18 @@ namespace YovyInventario.Pages.Empleado
                 return RedirectToPage("/Index");
             }
             
-            
+        }
+        public void OnPostBuscarInv()
+        {
+            int id = (int)HttpContext.Session.GetInt32("_id");
+            productos = _contex.Productos.ToList();
+            inventario = _contex.Inventarios.ToList().Where(e => e.Fkusuario == id).Where(e=>e.Fecha==FechaInv);
+        }
+    public void OnPostBuscarVenta()
+        {
+            int id = (int)HttpContext.Session.GetInt32("_id");
+            productos = _contex.Productos.ToList();
+            ventas = _contex.Venta.ToList().Where(e => e.Fkvendedor == id).Where(e => e.Fecha == FechaVenta);
         }
     }
 }
