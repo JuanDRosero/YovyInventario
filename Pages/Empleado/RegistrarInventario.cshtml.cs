@@ -37,7 +37,7 @@ namespace YovyInventario.Pages.Empleado
             inventario.Fkusuario = id;
             _context.Add(inventario);
             await _context.SaveChangesAsync();
-            return RedirectToPage("Index"); //Una vez que se guarda en la base de datos, se redirige a la pagina index
+            return RedirectToPage("Index1"); //Una vez que se guarda en la base de datos, se redirige a la pagina index
         }
     }
 }

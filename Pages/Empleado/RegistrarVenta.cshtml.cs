@@ -40,7 +40,7 @@ namespace YovyInventario.Pages.Empleado
             venta.PrecioTotal = producto.PrecioVenta * venta.Cantidad;
             _context.Add(venta);
             await _context.SaveChangesAsync();
-            return RedirectToPage("Index"); //Una vez que se guarda en la base de datos, se redirige a la pagina index
+            return RedirectToPage("Index1"); //Una vez que se guarda en la base de datos, se redirige a la pagina index
         }
     }
 }
