@@ -11,11 +11,11 @@ namespace YovyInventario.Models
         public int IdInventario { get; set; }
         [Required]
         public int Fkusuario { get; set; }
-        [Required (ErrorMessage ="El Campo Cantidad es requerido")] [Display(Name ="Cantidad")]
+        [Required(ErrorMessage = "El Campo Cantidad es requerido")] [Display(Name ="Cantidad")]
         public int Cantidad { get; set; }
         [Required]
         public int Fkproducto { get; set; }
-        [DataType(DataType.Date)] [Display(Name ="Fecha")]
+        [DataType(DataType.Date)] [Required (ErrorMessage = "El Campo Fecha es requerido")]
         public DateTime Fecha { get; set; }
 
         public virtual Producto FkproductoNavigation { get; set; }

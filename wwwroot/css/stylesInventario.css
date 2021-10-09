@@ -1,0 +1,25 @@
+.card{
+    margin: 2.5em;
+}
+
+.card-header{
+    background-color:#E4F3FF;
+}
+
+input[type = submit]{
+    background-color:#78c0e0;
+}
+
+.btnVolverLista{
+    background-color: #e378a1; 
+}
+
+.btnVolverLista:hover{
+    background-color: #DB588A;
+}
+
+.form-horizontal{
+    display:block;
+    width:100%;
+    margin-left:15em;
+}

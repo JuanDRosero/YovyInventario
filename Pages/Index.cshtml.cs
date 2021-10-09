@@ -13,7 +13,7 @@ namespace YovyInventario.Pages
     public class IndexModel : PageModel
     {
         [TempData]
-        public string Mensaje { get; set; }
+        public string Mensaje { get; set; } //Mensaje temporal para mostrar el error en el inicio de sesion
         private YovyDBContext _context { get; set; }
         public Usuario usuario { get; set; }
         public IndexModel(YovyDBContext context)
@@ -24,7 +24,7 @@ namespace YovyInventario.Pages
 
         public void OnGet()
         {
-            HttpContext.Session.SetInt32("_id", -1);
+            HttpContext.Session.SetInt32("_id", -1);//Inicia el ID en la sesion en-1
         }
 
         public ActionResult OnPost(string user, string password)
@@ -32,11 +32,11 @@ namespace YovyInventario.Pages
             try
             {
                 int pass = Convert.ToInt32(password);
-                usuario = _context.Usuarios.Where(e => e.NUsuario == user).Where(e => e.Contrasena == pass).FirstOrDefault();
+                usuario = _context.Usuarios.Where(e => e.NUsuario == user).Where(e => e.Contrasena == pass).FirstOrDefault();//Busca el usuario en al DB
             } catch(Exception e)
             {
                 Mensaje = "Contraseña invalida";
-                return Page();
+                return Page(); //Si la contraseña tiene caracteres retorna a la misma pagina
             }
             
             
@@ -44,7 +44,7 @@ namespace YovyInventario.Pages
             {
                 int id = usuario.IdUsuario;
                 HttpContext.Session.SetInt32("_id",id);
-                return RedirectToPage("/Empleado/Index1");
+                return RedirectToPage("/Empleado/Index1"); //Si el usuario es correcto pasa a la página index
             }
             else
             {

@@ -1,45 +1,83 @@
 ﻿@page
+@section indexprincipal {
+    <link href="@Url.Content("~/css/styles-indexempleado.css")" rel="stylesheet" type="text/css" />
+}
 @model YovyInventario.Pages.Empleado.IndexModel
+
 @{
 }
+<div>
+    <div class="card shadow p-3 mb-5 bg-white rounded">
+        <div class=" d-flex justify-content-between">
+            <h2>Lista de Inventario</h2>
+            <form class="form-inline" asp-page-handler="BuscarInv" method="post">
+                <div class="input-group mb-3">
+                    <label for="fechaventas" class="col-form-label mx-2">Fecha: </label>
+                    <input type="date" asp-for="FechaInv" class="form-control" placeholder="Fecha a consultar" aria-label="Fecha a consultar" >
+                    <button class="btn btn-outline-secondary" type="submit">Buscar</button>
+                </div>
+            </form>
+        </div>
+        <table class="tabla table table-hover table-responsive">
+            <thead class="theadblue">
+                <tr>
+                    <th>#</th>
+                    <th>Fecha</th>
+                    <th>Cantidad</th>
+                    <th>Producto</th>
+                </tr>
+            </thead>
+            @if (Model.inventario != null)
+            {
+                @foreach (var item in Model.inventario)
+                {
+                    <tr>
+                        <td>@Html.DisplayFor(m => item.IdInventario)</td>
+                        <td>@Html.DisplayFor(m => item.Fecha)</td>
+                        <td>@Html.DisplayFor(m => item.Cantidad)</td>
+                        <td>@Html.DisplayFor(m => Model.productos.ToList().Find(p => p.IdProducto == item.Fkproducto).Nombre)</td>
+                    </tr>
+                }
+            }
+        </table>
+    </div>
+    <div class="card shadow p-3 mb-5 bg-white rounded">
+        <div class=" d-flex justify-content-between">
+            <h2>Lista de Ventas</h2>
+            <form class="form-inline" asp-page-handler="BuscarVenta" method="post">
+                <div class="input-group mb-3">
+                    <label for="fechaventas" class="col-form-label mx-2">Fecha: </label>
+                    <input asp-for="FechaVenta" type="date" class="form-control" placeholder="Fecha a consultar" aria-label="Fecha a consultar" aria-describedby="basic-addon2">
+                    <button class="btn btn-outline-secondary" type="submit">Buscar</button>
+                </div>
+            </form>
+        </div>
+        <table class="tabla table table-hover table-responsive">
+            <thead class="theadblue">
+                <tr>
+                    <th>#</th>
+                    <th>Nombre Cliente</th>
+                    <th>Fecha</th>
+                    <th>Cantidad</th>
+                    <th>Producto</th>
+                    <th>Precio Total</th>
+                </tr>
+            </thead>
+            @if (Model.ventas != null)
+            {
+                @foreach (var item in Model.ventas)
+                {
+                    <tr>
+                        <td>@Html.DisplayFor(m => item.IdVenta)</td>
+                        <td>@Html.DisplayFor(m => item.NombreCliente)</td>
+                        <td>@Html.DisplayFor(m => item.Fecha)</td>
+                        <td>@Html.DisplayFor(m => item.Cantidad)</td>
+                        <td>@Html.DisplayFor(m => Model.productos.ToList().Find(p => p.IdProducto == item.Fkproducto).Nombre)</td>
+                        <td>@Html.DisplayFor(m => item.PrecioTotal)</td>
+                    </tr>
+                }
+            }
+        </table>
+    </div>
+</div>
 
-<h2>Lista de Inventario</h2>
-<table class="table table-dark table-striped">
-    <tr>
-        <th>#</th>
-        <th>Fecha</th>
-        <th>Cantidad</th>
-        <th>Producto</th>
-    </tr>
-    @foreach (var item in Model.inventario)
-    {
-<tr>
-    <td>@Html.DisplayFor(m => item.IdInventario)</td>
-    <td>@Html.DisplayFor(m => item.Fecha)</td>
-    <td>@Html.DisplayFor(m => item.Cantidad)</td>
-    <td>@Html.DisplayFor(m => Model.productos.ToList().Find(p => p.IdProducto == item.Fkproducto).Nombre)</td>
-</tr>
-    }
-</table>
-<h2>Lista de Ventas</h2>
-<table class="table table-dark table-striped">
-    <tr>
-        <th>#</th>
-        <th>Nombre Cliente</th>
-        <th>Fecha</th>
-        <th>Cantidad</th>
-        <th>Producto</th>
-        <th>Precio Total</th>
-    </tr>
-    @foreach (var item in Model.ventas)
-    {
-<tr>
-    <td>@Html.DisplayFor(m => item.IdVenta)</td>
-    <td>@Html.DisplayFor(m => item.NombreCliente)</td>
-    <td>@Html.DisplayFor(m => item.Fecha)</td>
-    <td>@Html.DisplayFor(m => item.Cantidad)</td>
-    <td>@Html.DisplayFor(m => Model.productos.ToList().Find(p => p.IdProducto == item.Fkproducto).Nombre)</td>
-    <td>@Html.DisplayFor(m => item.PrecioTotal)</td>
-</tr>
-    }
-</table>
