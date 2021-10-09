@@ -25,7 +25,7 @@ namespace YovyInventario
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            //Insersicó de dependencias para el uso de sesions
+            //Insersión de dependencias para el uso de sesiones
             services.AddDistributedMemoryCache();
             //Configuración de la sesion
             services.AddSession(

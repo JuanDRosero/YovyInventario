@@ -11,6 +11,7 @@ namespace YovyInventario.Pages.Empleado
 {
     public class IndexModel : PageModel
     {
+        //Declaración de propiedades que usa la página
         public  YovyDBContext _contex { get; set; }
         [BindProperty]
         public IEnumerable<Inventario> inventario { get; set; }
@@ -28,7 +29,7 @@ namespace YovyInventario.Pages.Empleado
             productos = _contex.Productos.ToList();
            
         }
-        public ActionResult OnGet()
+        public ActionResult OnGet() //Peticion Get que muestra todos los registros
         {
             if (HttpContext.Session.GetInt32("_id") != -1)
             {
@@ -43,13 +44,13 @@ namespace YovyInventario.Pages.Empleado
             }
             
         }
-        public void OnPostBuscarInv()
+        public void OnPostBuscarInv() //Petición Post para el Handler BuscarInv
         {
             int id = (int)HttpContext.Session.GetInt32("_id");
             productos = _contex.Productos.ToList();
             inventario = _contex.Inventarios.ToList().Where(e => e.Fkusuario == id).Where(e=>e.Fecha==FechaInv);
         }
-    public void OnPostBuscarVenta()
+    public void OnPostBuscarVenta()//Petición Post para el Handler BuscarVenta
         {
             int id = (int)HttpContext.Session.GetInt32("_id");
             productos = _contex.Productos.ToList();

@@ -11,6 +11,7 @@ namespace YovyInventario.Pages.Empleado
 {
     public class RegistrarVentaModel : PageModel
     {
+        //Propiedades que utiliza la página
         private YovyDBContext _context { get; set; }
         [BindProperty]
         public Ventum venta { get; set; }
@@ -26,7 +27,7 @@ namespace YovyInventario.Pages.Empleado
         {
             
         }
-        public async Task<ActionResult> OnPost()
+        public async Task<ActionResult> OnPost() //Petición Post asincronica
         {
             if (!ModelState.IsValid)    //Verifica que el modelo enviado sea valido.. si no lo es, se retorna  al amisma página
             {
