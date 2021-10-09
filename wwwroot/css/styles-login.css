@@ -1,9 +1,7 @@
 
 /* BASIC */
 
-html {
-  background-color: #56baed;
-}
+
 
 body {
   font-family: "Poppins", sans-serif;
@@ -236,7 +234,6 @@ input[type=text], input[type=password] {
   bottom: -10px;
   width: 0;
   height: 2px;
-  background-color: #56baed;
   content: "";
   transition: width 0.2s;
 }
@@ -259,4 +256,5 @@ input[type=text], input[type=password] {
 
 #icon {
   width:60%;
+  margin: 10px;
 }
