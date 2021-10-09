@@ -36,7 +36,7 @@ namespace YovyInventario.Pages.Empleado
             if (HttpContext.Session.GetInt32("_id") != -1)
             {
                 int id = (int)HttpContext.Session.GetInt32("_id");
-                //inventario = _contex.Inventarios.ToList().Where(e => e.Fkusuario == id);
+                inventario = _contex.Inventarios.ToList().Where(e => e.Fkusuario == id);
                 ventas = _contex.Venta.ToList().Where(e => e.Fkvendedor == id);
                 return Page();
             }
@@ -47,12 +47,14 @@ namespace YovyInventario.Pages.Empleado
             
             
         }
-        public ActionResult OnPost()
+        public void OnPost()
         {
+            /*
             int id = (int)HttpContext.Session.GetInt32("_id");
             if
             inventario = _contex.Inventarios.ToList().Where(e => e.Fkusuario == id).Where(e=>e.Fecha==fechaInv);
             return Page();
+            */
         }
     }
 }

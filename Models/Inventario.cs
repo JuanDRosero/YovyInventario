@@ -11,7 +11,7 @@ namespace YovyInventario.Models
         public int IdInventario { get; set; }
         [Required]
         public int Fkusuario { get; set; }
-        [Required] [Display(Name ="Cantidad")]
+        [Required (ErrorMessage ="El Campo Cantidad es requerido")] [Display(Name ="Cantidad")]
         public int Cantidad { get; set; }
         [Required]
         public int Fkproducto { get; set; }
