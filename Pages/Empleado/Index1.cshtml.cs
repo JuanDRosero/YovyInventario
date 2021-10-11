@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.EntityFrameworkCore;
 using YovyInventario.Models;
 
 namespace YovyInventario.Pages.Empleado
@@ -49,26 +50,21 @@ namespace YovyInventario.Pages.Empleado
             }
             
         }
-        public void OnPostBuscarInv() //Petición Post para el Handler BuscarInv
+        public  void OnPostBuscarInv() //Petición Post para el Handler BuscarInv
         {
             int id = (int)HttpContext.Session.GetInt32("_id");
             productos = _contex.Productos.ToList();
-            inventario = _contex.Inventarios.ToList().Where(e => e.Fkusuario == id).Where(e=>e.Fecha==FechaInv);
+            inventario = _contex.Inventarios.Where(e => e.Fkusuario == id).Where(e=>e.Fecha==FechaInv).ToList();
         }
     public void OnPostBuscarVenta()//Petición Post para el Handler BuscarVenta
         {
             int id = (int)HttpContext.Session.GetInt32("_id");
             productos = _contex.Productos.ToList();
-            ventas = _contex.Venta.ToList().Where(e => e.Fkvendedor == id).Where(e => e.Fecha == FechaVenta);
+            ventas = _contex.Venta.Where(e => e.Fkvendedor == id).Where(e => e.Fecha == FechaVenta).ToList();
         }
         public void OnPost()
         {
-            /*
-            int id = (int)HttpContext.Session.GetInt32("_id");
-            if
-            inventario = _contex.Inventarios.ToList().Where(e => e.Fkusuario == id).Where(e=>e.Fecha==fechaInv);
-            return Page();
-            */
+
         }
     }
 }
