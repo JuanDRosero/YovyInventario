@@ -21,5 +21,12 @@ input[type = submit]{
 .form-horizontal{
     display:block;
     width:100%;
-    margin-left:15em;
+    margin-left:25%;
+}
+@media only screen and (max-width: 600px) {
+    .form-horizontal{
+        display:block;
+        width:100%;
+        margin-left:0;
+    }
 }
